@@ -27,7 +27,12 @@ const nodeIcons = {
 
 export default class Monitor extends React.Component {
   static propTypes = {
-    nodes: PropTypes.arrayOf(PropTypes.string).isRequired,
+    nodes: PropTypes.arrayOf(
+      PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+      })
+    ).isRequired,
   };
 
   constructor(props) {
