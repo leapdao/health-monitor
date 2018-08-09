@@ -1,5 +1,17 @@
 {
   "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "react": "preact-compat",
+          "react-dom": "preact-compat",
+          "create-react-class": "preact-compat/lib/create-react-class",
+          "react-dom-factories": "preact-compat/lib/react-dom-factories"
+        }
+      }
+    ],
     "transform-decorators-legacy",
     ["transform-class-properties", { "loose": true }],
     [
