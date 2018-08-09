@@ -15,7 +15,7 @@ function getNodeStatus(node) {
     },
   })
     .then(r => r.json(), () => ({ result: 'offline' }))
-    .then(r => r.result);
+    .then(r => r.result || 'unsupported-node');
 }
 
 const nodeIcons = {
@@ -75,7 +75,7 @@ export default class Monitor extends React.Component {
             <span
               className={`monitor-status monitor-status-${statuses[node.url]}`}
             >
-              {statuses[node.url] && `${nodeIcons[statuses[node.url]]}`}
+              {statuses[node.url] && nodeIcons[statuses[node.url]]}
               {statuses[node.url] || 'Checking...'}
             </span>
           </li>

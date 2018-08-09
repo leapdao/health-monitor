@@ -62,3 +62,7 @@ body {
 .monitor-status-waiting-for-period {
   color: #e70;
 }
+
+.monitor-status-unsupported-node {
+  color: #aaa;
+}
