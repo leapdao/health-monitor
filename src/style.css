@@ -44,33 +44,21 @@ body {
 }
 
 .monitor-status {
-  font-size: 1.2rem;
-
-  background-color: #efefef;
-  line-height: 1;
-  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
   margin-left: 10px;
-  border-radius: 5px;
 }
 
 .monitor-status-ok {
-  color: #ffffff;
-  background-color: #00bf00;
+  color: #00bf00;
 }
 
 .monitor-status-offline {
-  color: #ffffff;
-  background-color: #d72e09;
+  color: #d72e09;
 }
 
 .monitor-status-catching-up,
 .monitor-status-waiting-for-period {
-  color: rgba(0, 0, 0, 0.6);
-  background-color: #fc0;
-}
-
-.monitor-status::after {
-  content: ' ';
-  display: block;
-  width: 100%;
+  color: #e70;
 }

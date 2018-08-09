@@ -55,8 +55,8 @@ export default class Monitor extends React.Component {
 
   loadStatuses() {
     this.props.nodes.forEach(node => {
-      getNodeStatus(node).then(status => {
-        this.setNodeStatus(node, status);
+      getNodeStatus(node.url).then(status => {
+        this.setNodeStatus(node.url, status);
       });
     });
   }
@@ -68,13 +68,15 @@ export default class Monitor extends React.Component {
     return (
       <ul className="monitor">
         {nodes.map(node => (
-          <li key={node} className="monitor-item">
+          <li key={node.url} className="monitor-item">
             <span className="monitor-node">
-              {statuses[node] && `${nodeIcons[statuses[node]]} `}
-              {node}
+              <strong>{node.label}:</strong> {node.url}
             </span>
-            <span className={`monitor-status monitor-status-${statuses[node]}`}>
-              {statuses[node] || 'Checking...'}
+            <span
+              className={`monitor-status monitor-status-${statuses[node.url]}`}
+            >
+              {statuses[node.url] && `${nodeIcons[statuses[node.url]]}`}
+              {statuses[node.url] || 'Checking...'}
             </span>
           </li>
         ))}

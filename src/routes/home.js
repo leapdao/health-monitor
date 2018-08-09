@@ -5,7 +5,7 @@ export default () => {
   return (
     <div className="page">
       <h1>PARSEC nodes health monitor</h1>
-      <Monitor nodes={['http://localhost:8646']} />
+      <Monitor nodes={[{ url: 'http://localhost:8646', label: 'Alice' }]} />
     </div>
   );
 };
