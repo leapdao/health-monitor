@@ -1,26 +1,24 @@
-# PARSEC Labs dapp boilerplate
+# PARSEC nodes health monitor
 
-Includes:
-
-- Basic react + react-router setup
-- Typescript config (you can create separate modules written in typescript)
-- Linting and code-style configs
+Simple monitoring page for parsec nodes
 
 ## Prerequisite
 
 - Yarn
 
-## Setup the new project
+## Start development server
 
-- `git clone --origin boilerplate https://github.com/parsec-labs/parsec-dapp-boilerplate.git <your-project-name>`
-- `git remote add origin git@github.com:parsec-labs/<your-project-name>.git`
-- change name in `package.json`
-- install deps with `yarn`
 - `yarn start`
-- start hacking :-)
+- Open http://localhost:1234 in browser
 
 ## Build for deployment
 
 ```
 yarn build
+```
+
+## Deploy
+
+```
+yarn deploy
 ```
