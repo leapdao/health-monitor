@@ -12,3 +12,65 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
 }
+
+.page {
+  width: 940px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page h1 {
+  font-size: 36px;
+  margin: 30px 0 20px;
+}
+
+.monitor {
+  font-size: 1.5rem;
+  list-style: none;
+  line-height: 2.4;
+}
+
+.monitor-node,
+.monitor-status {
+  display: inline-block;
+}
+
+.monitor-item {
+  display: flex;
+  align-items: center;
+}
+
+.monitor-node {
+}
+
+.monitor-status {
+  font-size: 1.2rem;
+
+  background-color: #efefef;
+  line-height: 1;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.monitor-status-ok {
+  color: #ffffff;
+  background-color: #00bf00;
+}
+
+.monitor-status-offline {
+  color: #ffffff;
+  background-color: #d72e09;
+}
+
+.monitor-status-catching-up,
+.monitor-status-waiting-for-period {
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #fc0;
+}
+
+.monitor-status::after {
+  content: ' ';
+  display: block;
+  width: 100%;
+}

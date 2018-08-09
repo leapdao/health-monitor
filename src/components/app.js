@@ -5,9 +5,8 @@
  * found in the LICENSE file in the root directory of this source tree.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 // import PropTypes from 'prop-types';
-import { Route, withRouter } from 'react-router';
 
 import Home from '../routes/home';
 
@@ -19,14 +18,10 @@ class App extends React.Component {
     this.state = {};
   }
   render() {
-    return (
-      <Fragment>
-        <Route path="/" exact component={Home} />
-      </Fragment>
-    );
+    return <Home />;
   }
 }
 
 App.propTypes = {};
 
-export default withRouter(App);
+export default App;
