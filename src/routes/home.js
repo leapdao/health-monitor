@@ -8,8 +8,12 @@ export default () => {
       <Monitor
         nodes={[
           {
-            url: 'http://ec2-34-254-247-1.eu-west-1.compute.amazonaws.com:8545',
-            label: 'Alice',
+            url: 'https://testnet-1.parseclabs.org',
+            label: 'Testnet #1',
+          },
+          {
+            url: 'https://testnet-2.parseclabs.org',
+            label: 'Testnet #2',
           },
         ]}
       />
