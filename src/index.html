@@ -22,7 +22,7 @@
     }
 
     .page {
-      width: 940px;
+      max-width: 940px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -35,7 +35,7 @@
     .monitor {
       font-size: 1.5rem;
       list-style: none;
-      line-height: 2.4;
+      line-height: 1.3;
     }
 
     .monitor-node,
@@ -43,12 +43,16 @@
       display: inline-block;
     }
 
-    .monitor-item {
+    .monitor-item+.monitor-item {
+      margin-top: 15px;
+    }
+
+    /* .monitor-item {
       display: flex;
       align-items: center;
     }
 
-    .monitor-node {}
+    .monitor-node {} */
 
     .monitor-status {
       display: inline-flex;
