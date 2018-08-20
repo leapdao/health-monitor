@@ -1,21 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function getNodeStatus(node) {
+function callMethod(node, method, params = []) {
   return fetch(node, {
     method: 'post',
     body: JSON.stringify({
       jsonrpc: '2.0',
       id: 1,
-      method: 'parsec_status',
-      params: [],
+      method,
+      params,
     }),
     headers: {
       'Content-Type': 'application/json',
     },
-  })
+  });
+}
+
+function getNodeStatus(node) {
+  return callMethod(node, 'parsec_status')
     .then(r => r.json(), () => ({ result: 'offline' }))
     .then(r => r.result || 'unsupported-node');
+}
+
+function getBlockNumber(node) {
+  return callMethod(node, 'eth_blockNumber')
+    .then(r => r.json())
+    .then(r => parseInt(r.result, 16));
 }
 
 const nodeIcons = {
@@ -24,6 +34,8 @@ const nodeIcons = {
   'waiting-for-period': '🔶',
   'catching-up': '🏃‍',
 };
+
+const getStatus = info => info && info.status;
 
 export default class Monitor extends React.Component {
   static propTypes = {
@@ -38,37 +50,42 @@ export default class Monitor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      statuses: {},
+      nodesInfo: {},
     };
 
-    this.loadStatuses = this.loadStatuses.bind(this);
+    this.loadInfo = this.loadInfo.bind(this);
   }
 
   componentDidMount() {
-    this.loadStatuses();
+    this.loadInfo();
 
-    setInterval(this.loadStatuses, 10000);
+    setInterval(this.loadInfo, 10000);
   }
 
-  setNodeStatus(node, status) {
+  setNodeInfo(node, status) {
     this.setState(state => ({
-      statuses: Object.assign({}, state.statuses, {
+      nodesInfo: Object.assign({}, state.nodesInfo, {
         [node]: status,
       }),
     }));
   }
 
-  loadStatuses() {
+  loadInfo() {
     this.props.nodes.forEach(node => {
-      getNodeStatus(node.url).then(status => {
-        this.setNodeStatus(node.url, status);
-      });
+      Promise.all([getNodeStatus(node.url), getBlockNumber(node.url)]).then(
+        ([status, blockNumber]) => {
+          this.setNodeInfo(node.url, {
+            status,
+            blockNumber,
+          });
+        }
+      );
     });
   }
 
   render() {
     const { nodes } = this.props;
-    const { statuses } = this.state;
+    const { nodesInfo } = this.state;
 
     return (
       <ul className="monitor">
@@ -78,11 +95,16 @@ export default class Monitor extends React.Component {
               <strong>{node.label}:</strong> {node.url}
             </span>
             <span
-              className={`monitor-status monitor-status-${statuses[node.url]}`}
+              className={`monitor-status monitor-status-${getStatus(
+                nodesInfo[node.url]
+              )}`}
             >
-              {statuses[node.url] && nodeIcons[statuses[node.url]]}
-              {statuses[node.url] || 'Checking...'}
+              {nodeIcons[getStatus(nodesInfo[node.url])]}
+              {getStatus(nodesInfo[node.url]) || 'Checking...'}
             </span>
+            {nodesInfo[node.url] && (
+              <span>&nbsp;(height {nodesInfo[node.url].blockNumber})</span>
+            )}
           </li>
         ))}
       </ul>
