@@ -1,14 +1,7 @@
 {
   "plugins": [
     "transform-decorators-legacy",
-    ["transform-class-properties", { "loose": true }],
-    [
-      "transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": false
-      }
-    ]
+    ["transform-class-properties", { "loose": true }]
   ],
   "env": {
     "production": {
