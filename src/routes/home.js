@@ -15,10 +15,6 @@ export default () => {
             url: 'https://testnet-2.parseclabs.org',
             label: 'Testnet #2',
           },
-          {
-            url: 'http://54.72.59.173:8645',
-            label: 'Terraformed node',
-          },
         ]}
       />
     </div>
