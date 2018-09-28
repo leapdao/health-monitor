@@ -7,7 +7,9 @@
   "scripts": {
     "start": "parcel src/index.html --open",
     "build": "rm -rf dist/ && parcel build src/index.html --detailed-report",
-    "deploy": "aws s3 sync ./dist s3://health.parseclabs.org/ --acl public-read",
+    "deploy": "yarn deploy:sync-s3 && yarn deploy:invalidate-cf",
+    "deploy:sync-s3": "aws s3 sync ./dist s3://health.parseclabs.org/ --acl public-read",
+    "deploy:invalidate-cf": "aws cloudfront create-invalidation --distribution-id E1GTXTFHSQWU5 --paths '/*'",
     "precommit": "lint-staged"
   },
   "lint-staged": {
