@@ -1,90 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
+      html {
+        font-size: 10px;
+      }
 
-    html {
-      font-size: 10px;
-    }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+      }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 1rem;
-    }
+      .page {
+        max-width: 940px;
+        margin: 0 auto;
+        padding: 20px;
+      }
 
-    .page {
-      max-width: 940px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+      .page h1 {
+        font-size: 36px;
+        margin: 30px 0 20px;
+      }
 
-    .page h1 {
-      font-size: 36px;
-      margin: 30px 0 20px;
-    }
+      .monitor {
+        font-size: 1.5rem;
+        list-style: none;
+        line-height: 1.3;
+      }
 
-    .monitor {
-      font-size: 1.5rem;
-      list-style: none;
-      line-height: 1.3;
-    }
+      .monitor-node,
+      .monitor-status {
+        display: inline-block;
+      }
 
-    .monitor-node,
-    .monitor-status {
-      display: inline-block;
-    }
+      .monitor-item + .monitor-item {
+        margin-top: 15px;
+      }
 
-    .monitor-item+.monitor-item {
-      margin-top: 15px;
-    }
-
-    /* .monitor-item {
+      /* .monitor-item {
       display: flex;
       align-items: center;
     }
 
     .monitor-node {} */
 
-    .monitor-status {
-      display: inline-flex;
-      align-items: center;
-      flex-wrap: nowrap;
-      margin-left: 10px;
-    }
+      .monitor-status {
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin-left: 10px;
+      }
 
-    .monitor-status-ok {
-      color: #00bf00;
-    }
+      .monitor-status-ok {
+        color: #00bf00;
+      }
 
-    .monitor-status-offline {
-      color: #d72e09;
-    }
+      .monitor-status-offline {
+        color: #d72e09;
+      }
 
-    .monitor-status-catching-up,
-    .monitor-status-waiting-for-period {
-      color: #e70;
-    }
+      .monitor-status-catching-up,
+      .monitor-status-waiting-for-period {
+        color: #e70;
+      }
 
-    .monitor-status-unsupported-node {
-      color: #aaa;
-    }
-  </style>
-  <title>PARSEC nodes health monitor</title>
-</head>
+      .monitor-status-unsupported-node {
+        color: #aaa;
+      }
+    </style>
+    <title>Leap nodes health monitor</title>
+  </head>
 
-<body>
-  <div id="app"></div>
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js" defer></script>
-  <script src="./index.js" defer></script>
-</body>
-
+  <body>
+    <div id="app"></div>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js" defer></script>
+    <script src="./index.js" defer></script>
+  </body>
 </html>

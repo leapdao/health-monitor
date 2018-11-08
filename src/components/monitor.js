@@ -17,7 +17,7 @@ function callMethod(node, method, params = []) {
 }
 
 function getNodeStatus(node) {
-  return callMethod(node, 'parsec_status')
+  return callMethod(node, 'plasma_status')
     .then(r => r.json(), () => ({ result: 'offline' }))
     .then(r => r.result || 'unsupported-node');
 }

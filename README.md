@@ -1,6 +1,6 @@
-# PARSEC nodes health monitor
+# Leap nodes health monitor
 
-Simple monitoring page for parsec nodes
+Simple monitoring page for leap nodes
 
 ## Prerequisite
 

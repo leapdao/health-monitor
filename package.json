@@ -1,5 +1,5 @@
 {
-  "name": "parsec-health-monitor",
+  "name": "leap-health-monitor",
   "version": "1.0.0",
   "main": "index.js",
   "license": "GPLv3",
