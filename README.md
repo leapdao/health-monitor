@@ -1,3 +1,5 @@
+> Merged into Bridge UI https://github.com/leapdao/bridge-ui/pull/54
+
 # Leap nodes health monitor
 
 Simple monitoring page for leap nodes
